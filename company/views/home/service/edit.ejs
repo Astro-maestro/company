@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../layouts/head.ejs') %>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <%- include('../../layouts/navbar.ejs') %>
+        <%- include('../../layouts/sidebar.ejs') %>
+
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Dashboard/Edit-Service</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                              <li class="breadcrumb-item"><a href="#">Home</a></li>
+                              <li class="breadcrumb-item active">Edit-Service</li>
+                            </ol>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <form action="/service/edit/<%= service._id %>" method="POST" enctype="multipart/form-data">  
+                        <div class="form-group">
+                            <label for="image1">Current Image1</label>
+                            <img src="<%= service.image1 %>" alt="Service Image" width="200">
+                            <input type="file" class="form-control" id="image1" name="image1">
+                        </div>
+                        <div class="form-group">
+                            <label for="image2">Current Image2</label>
+                            <img src="<%= service.image2 %>" alt="Service Image" width="200">
+                            <input type="file" class="form-control" id="image2" name="image2">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" value="<%= service.title %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subtitle">Subtitle</label>
+                            <input type="text" class="form-control" id="subtitle" name="subtitle" value="<%= service.subtitle %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hover_color">Hover_Color</label>
+                            <input type="text" class="form-control" id="hover_color" name="hover_color" value="<%= service.hover_color %>" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Service</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <%- include('../../layouts/footer.ejs') %>
+    </div>
+</body>
+
+</html>

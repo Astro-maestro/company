@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../layouts/head.ejs') %>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <%- include('../../layouts/navbar.ejs') %>
+        <%- include('../../layouts/sidebar.ejs') %>
+
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Dashboard/Edit-Team</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                              <li class="breadcrumb-item"><a href="#">About</a></li>
+                              <li class="breadcrumb-item active">Edit-Team</li>
+                            </ol>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <form action="/team/edit/<%= team._id %>" method="POST" enctype="multipart/form-data">  
+                        <div class="form-group">
+                            <label for="image">Current Image</label>
+                            <img src="<%= team.image %>" alt="Service Image" width="200">
+                            <input type="file" class="form-control" id="image" name="image">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="<%= team.name %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subtitle">Position</label>
+                            <input type="text" class="form-control" id="position" name="position" value="<%= team.position %>" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Team</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <%- include('../../layouts/footer.ejs') %>
+    </div>
+</body>
+
+</html>

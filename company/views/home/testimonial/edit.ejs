@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../layouts/head.ejs') %>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <%- include('../../layouts/navbar.ejs') %>
+        <%- include('../../layouts/sidebar.ejs') %>
+
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Dashboard/Edit-Testimonial</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Edit-Testimonial</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <form action="/testimonial/edit/<%= testimonial._id %>" method="POST" enctype="multipart/form-data">
+                        <!-- Name field -->
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="<%= testimonial.name %>" required>
+                        </div>
+
+                        <!-- Position field -->
+                        <div class="form-group">
+                            <label for="position">Position</label>
+                            <input type="text" class="form-control" id="position" name="position" value="<%= testimonial.position %>" required>
+                        </div>
+
+                        <!-- Comment field (fixed) -->
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <input type="text" class="form-control" id="comment" name="comment" value="<%= testimonial.comment %>" required>
+                        </div>
+
+                        <!-- Image field (fixed) -->
+                        <div class="form-group">
+                            <label for="image">Current Image</label><br>
+                            <img src="<%= testimonial.image %>" alt="Testimonial Image" width="200"><br><br>
+                            <input type="file" class="form-control-file" id="image" name="image">
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary">Update Testimonial</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <%- include('../../layouts/footer.ejs') %>
+    </div>
+</body>
+
+</html>

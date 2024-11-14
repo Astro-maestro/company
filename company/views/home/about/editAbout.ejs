@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../layouts/head.ejs') %>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <%- include('../../layouts/navbar.ejs') %>
+        <%- include('../../layouts/sidebar.ejs') %>
+
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Dashboard/Edit-About</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                              <li class="breadcrumb-item"><a href="#">Home</a></li>
+                              <li class="breadcrumb-item active">Edit-About</li>
+                            </ol>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <form action="/about/edit/<%= about._id %>" method="POST" >
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" value="<%= about.title %>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subtitle">Subtitle</label>
+                            <input type="text" class="form-control" id="subtitle" name="subtitle" value="<%= about.subtitle %>" required>
+                        </div>
+
+                        <div class="form-group"></div>
+                            <label for="details">details</label>
+                            <input type="text" class="form-control" id="subtitle" name="details" value="<%= about.details %>" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-4 ml-2">Update About</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <%- include('../../layouts/footer.ejs') %>
+    </div>
+</body>
+
+</html>

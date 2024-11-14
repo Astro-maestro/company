@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+
+<%- include('../../layouts/head.ejs') %>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    </div>
+
+    <!-- Navbar -->
+    <%- include('../../layouts/navbar.ejs') %>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <%- include('../../layouts/sidebar.ejs') %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Dashboard / Add-Contact</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Contact</a></li>
+                <li class="breadcrumb-item active">Add-Contact</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+       <!-- Display Error Message -->
+       <% if (typeof error !== 'undefined') { %>
+        <div class="alert alert-danger">
+            <%= error %>
+        </div>
+    <% } %>
+
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          <form action="/create/contact" method="POST" >
+            <div class="form-group">
+              <label for="exampleInputEmail1">Location: </label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="location" required aria-describedby="emailHelp">
+             
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Emails (comma-separated): </label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="emails" required aria-describedby="emailHelp">
+             
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Calls (comma-separated): </label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="calls" required aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Contact</button>
+          </form>
+          <!-- /.row -->
+
+          <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <%- include('../../layouts/footer.ejs') %>
